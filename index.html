@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Air-Quality</title>
+    <link rel="stylesheet" href="stylesheets/all.css">
+</head>
+<body>
+    <section>
+        <div class="loading-box">
+            <div class="loading-text">
+                <span>LOADING</span>
+            </div>
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </section>
+    <section class="title">
+        <div class="container pt-5 py-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>空氣品質指標(AQI)</h1>
+                    <select name="" id="" class="custom-select CountyList" style="width:350px;height:56px">
+                        <option value="" selected>請選擇的地區</option>
+                    </select>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-bordered bg-white">
+                        <thead class="table-bordered">
+                            <tr>
+                                <th scope="col" width="122px" height="54px" class="bg-green table-bordered">0~50</th>
+                                <th scope="col" width="122px" height="54px" class="bg-yellow table-bordered">51~100</th>
+                                <th scope="col" width="122px" height="54px" class="bg-orange table-bordered">101~150</th>
+                                <th scope="col" width="122px" height="54px" class="bg-red table-bordered">151~200</th>
+                                <th scope="col" width="122px" height="54px" class="bg-purple table-bordered">201~300</th>
+                                <th scope="col" width="122px" height="54px" class="bg-pink table-bordered">301~400</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row" height="56px">良好</td>
+                                <td>普通</td>
+                                <td>對敏感族群<br>不健康</td>
+                                <td>對所有族群<br>不健康</td>
+                                <td>非常不健康</td>
+                                <td>危害</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </section>
+    <section class="main">
+        <div class="container separation">
+                <div class=" h2 County"></div>
+                <div class="hr-style"></div>
+                <div class=" d-inline PublishTime"></div>
+                <span>更新</span>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container pt-3">
+            <div class="row">
+                <div class="col-md-4 airtable">
+                    <table class="table table-bordered bg-white">
+                        <thead class="table-bordered">
+                            <tr>
+                                <th scope="col" width="190px" height="97px" class="table-bordered textsize SiteName_select"></th>
+                                <th scope="col" width="160px" height="97px" class="table-bordered numsize AQI_select"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d-flex align-items-end mx-4 my-3 list-border O3_style">
+                                        <span class="h4 mb-0 pr-1">臭氧</span>
+                                        <span>O<sub>3</sub> (ppb)</span>
+                                        <span class="h4 mb-0 ml-auto O3"></span>
+                                    </div>
+                                    <div class="d-flex align-items-end mx-4 my-3 list-border">
+                                        <span class="h4 mb-0 pr-1">懸浮微粒</span>
+                                        <span>PM<sub>10</sub> (μg/m³)</span>
+                                        <span class="h4 mb-0 ml-auto PM10"></span>
+                                    </div>
+                                    <div class="d-flex align-items-end mx-4 my-3 list-border">
+                                        <span class="h4 mb-0 pr-1">細懸浮微粒</span>
+                                        <span>PM<sub>2.5</sub> (μg/m³)</span>
+                                        <span class="h4 mb-0 ml-auto PM25"></span>
+                                    </div>
+                                    <div class="d-flex align-items-end mx-4 my-3 list-border">
+                                        <span class="h4 mb-0 pr-1">一氧化碳</span>
+                                        <span>CO (ppm))</span>
+                                        <span class="h4 mb-0 ml-auto CO"></span>
+                                    </div>
+                                    <div class="d-flex align-items-end mx-4 my-3 list-border">
+                                        <span class="h4 mb-0 pr-1">二氧化硫</span>
+                                        <span>SO<sub>2</sub> (ppb)</span>
+                                        <span class="h4 mb-0 ml-auto SO2"></span>
+                                    </div>
+                                    <div class="d-flex align-items-end mx-4 my-3 NO2_style">
+                                        <span class="h4 mb-0 pr-1">二氧化氮</span>
+                                        <span>NO<sub>2</sub> (ppb)</span>
+                                        <span class="h4 mb-0 ml-auto NO2"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-8 pb-4">
+                    <div class="row justify-content-start table_list">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="d-flex justify-content-between bg-dark">
+            <div class="footer-left">
+                <span>資料來源：行政院環境保護署</span>
+            </div>
+            <div class="footer-right">
+                <span>Copyright © 2019 HexSchool. All rights reserved.</span>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>  
+    <script src="js/all.js"></script>      
+</body>
+</html>
